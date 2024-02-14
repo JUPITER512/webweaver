@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import { ClerkProvider } from '@clerk/nextjs'
 import {dark} from '@clerk/themes'
-import { Inter } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/theme-provider";
 
-const inter = Inter({ subsets: ["latin"] });
+const font = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
 	title: "Web Weaver Website Builder",
-	description: "Turn your ideas into  web",
+	description: "Turn your ideas into  Web & Agency Solution",
 };
 
 export default function RootLayout({
@@ -18,10 +18,9 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<ClerkProvider appearance={{baseTheme:dark}}>
 
 		<html lang="en" suppressHydrationWarning>
-			<body className={inter.className}>
+			<body className={font.className}>
       <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -32,6 +31,5 @@ export default function RootLayout({
         </ThemeProvider>
 					</body>
 		</html>
-		</ClerkProvider>
 	);
 }
